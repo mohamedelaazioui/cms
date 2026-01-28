@@ -3,13 +3,13 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 # Create an admin user
-unless Admin.exists?(email: 'admin@example.com')
+unless Admin.exists?(email: 'mohamed.elaazioui@gibugumi.com')
   Admin.create!(
-    email: 'admin@example.com',
-    password: 'password123',
-    password_confirmation: 'password123'
+    email: 'mohamed.elaazioui@gibugumi.com',
+    password: 'CHOCOpeche-123',
+    password_confirmation: 'CHOCOpeche-123'
   )
-  puts "Created admin user: admin@example.com / password123"
+  puts "Created admin user: mohamed.elaazioui@gibugumi.com / CHOCOpeche-123"
 end
 
 # Create sample pages
@@ -180,4 +180,4 @@ unless SocialLink.exists?
 end
 
 puts "\n✅ Database seeded successfully!"
-puts "Admin login: admin@example.com / password123"
+puts "Admin login: mohamed.elaazioui@gibugumi.com / CHOCOpeche-123"

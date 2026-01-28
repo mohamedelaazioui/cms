@@ -58,12 +58,17 @@ Rails.application.configure do
   end
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  # Use Solid Queue if database supports it, otherwise use inline adapter
-  begin
-    config.active_job.queue_adapter = :solid_queue
-    config.solid_queue.connects_to = { database: { writing: :queue } }
-  rescue StandardError
-    config.active_job.queue_adapter = :inline
+  # Use async adapter on Heroku (DYNO env var is set by Heroku)
+  # Use Solid Queue on other platforms if database supports it
+  if ENV["DYNO"].present?
+    config.active_job.queue_adapter = :async
+  else
+    begin
+      config.active_job.queue_adapter = :solid_queue
+      config.solid_queue.connects_to = { database: { writing: :queue } }
+    rescue StandardError
+      config.active_job.queue_adapter = :async
+    end
   end
 
   # Ignore bad email addresses and do not raise email delivery errors.
