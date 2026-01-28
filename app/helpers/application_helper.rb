@@ -64,4 +64,23 @@ module ApplicationHelper
       "fas fa-star"
     end
   end
+
+  def safe_external_link(url, text = nil, html_options = {})
+    return "" if url.blank?
+
+    # Sanitize URL to prevent XSS
+    begin
+      uri = URI.parse(url)
+      # Only allow http and https schemes
+      return "" unless %w[http https].include?(uri.scheme)
+
+      sanitized_url = uri.to_s
+    rescue URI::InvalidURIError
+      return ""
+    end
+
+    text ||= sanitized_url
+    default_options = { target: "_blank", rel: "noopener noreferrer" }
+    link_to text, sanitized_url, default_options.merge(html_options)
+  end
 end

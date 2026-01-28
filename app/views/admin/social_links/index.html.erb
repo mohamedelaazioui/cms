@@ -17,7 +17,7 @@
         <% @social_links.each do |social_link| %>
           <tr>
             <td><%= social_link.name %></td>
-            <td><%= link_to social_link.url, social_link.url, target: '_blank', rel: 'noopener' %></td>
+            <td><%= safe_external_link(social_link.url) %></td>
             <td>
               <%= link_to 'Show', admin_social_link_path(social_link), class: 'btn btn-sm btn-info' %>
               <%= link_to 'Edit', edit_admin_social_link_path(social_link), class: 'btn btn-sm btn-warning' %>

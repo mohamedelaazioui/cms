@@ -9,7 +9,7 @@
 
       <dt class="col-sm-3">URL:</dt>
       <dd class="col-sm-9">
-        <%= link_to @social_link.url, @social_link.url, target: '_blank', rel: 'noopener' %>
+        <%= safe_external_link(@social_link.url) %>
       </dd>
     </dl>
   </div>
