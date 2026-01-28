@@ -2,23 +2,23 @@ Rails.application.routes.draw do
   devise_for :admins
 
   # Health check endpoints for monitoring and load balancers
-  get '/health', to: 'health#show'
-  get '/health/ready', to: 'health#ready'
-  get '/health/live', to: 'health#live'
+  get "/health", to: "health#show"
+  get "/health/ready", to: "health#ready"
+  get "/health/live", to: "health#live"
 
   namespace :admin do
-    root 'dashboard#index'
+    root "dashboard#index"
     resources :pages
     resources :services
     resources :testimonials
     resources :social_links
   end
 
-  scope '(:locale)', locale: /en|ja/ do
+  scope "(:locale)", locale: /en|ja/ do
     resources :contact_messages, only: %i[new create]
-    root 'public#home'
-    get '/about', to: 'public#about'
-    get '/services', to: 'public#services'
-    get '/testimonials', to: 'public#testimonials'
+    root "public#home"
+    get "/about", to: "public#about"
+    get "/services", to: "public#services"
+    get "/testimonials", to: "public#testimonials"
   end
 end

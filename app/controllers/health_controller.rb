@@ -4,15 +4,15 @@ class HealthController < ApplicationController
   def show
     # Check database connectivity
     database_status = check_database
-    
+
     # Check Redis connectivity
     redis_status = check_redis
-    
+
     # Overall health
     healthy = database_status && redis_status
-    
+
     status_code = healthy ? :ok : :service_unavailable
-    
+
     render json: {
       status: healthy ? "healthy" : "unhealthy",
       timestamp: Time.current.iso8601,
@@ -27,7 +27,7 @@ class HealthController < ApplicationController
   def ready
     # Readiness check - can the app serve requests?
     database_ready = check_database
-    
+
     render json: {
       ready: database_ready,
       timestamp: Time.current.iso8601

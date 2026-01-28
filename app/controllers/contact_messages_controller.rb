@@ -7,7 +7,7 @@ class ContactMessagesController < ApplicationController
     @contact_message = ContactMessage.new(contact_message_params)
 
     if @contact_message.save
-      redirect_to root_path, notice: 'Your message was successfully sent!'
+      redirect_to root_path, notice: "Your message was successfully sent!"
     else
       render :new, status: :unprocessable_entity
     end

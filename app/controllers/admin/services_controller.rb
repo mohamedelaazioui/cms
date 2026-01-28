@@ -35,7 +35,7 @@ class Admin::ServicesController < Admin::BaseController
 
   def destroy
     @service.destroy
-    redirect_to admin_services_path, notice: 'Service was successfully deleted.'
+    redirect_to admin_services_path, notice: "Service was successfully deleted."
   end
 
   private

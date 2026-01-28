@@ -19,7 +19,7 @@ class Admin::TestimonialsController < Admin::BaseController
     @testimonial = Testimonial.new(testimonial_params)
 
     if @testimonial.save
-      redirect_to admin_testimonial_path(@testimonial), notice: 'Testimonial was successfully created.'
+      redirect_to admin_testimonial_path(@testimonial), notice: "Testimonial was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admin::TestimonialsController < Admin::BaseController
 
   def update
     if @testimonial.update(testimonial_params)
-      redirect_to admin_testimonial_path(@testimonial), notice: 'Testimonial was successfully updated.'
+      redirect_to admin_testimonial_path(@testimonial), notice: "Testimonial was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admin::TestimonialsController < Admin::BaseController
 
   def destroy
     @testimonial.destroy
-    redirect_to admin_testimonials_path, notice: 'Testimonial was successfully deleted.'
+    redirect_to admin_testimonials_path, notice: "Testimonial was successfully deleted."
   end
 
   private

@@ -21,7 +21,7 @@ module Cms
 
     # Application version for health checks
     config.version = ENV.fetch("APP_VERSION", "1.0.0")
-    
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

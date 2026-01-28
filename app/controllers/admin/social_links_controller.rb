@@ -19,7 +19,7 @@ class Admin::SocialLinksController < Admin::BaseController
     @social_link = SocialLink.new(social_link_params)
 
     if @social_link.save
-      redirect_to admin_social_link_path(@social_link), notice: 'Social link was successfully created.'
+      redirect_to admin_social_link_path(@social_link), notice: "Social link was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admin::SocialLinksController < Admin::BaseController
 
   def update
     if @social_link.update(social_link_params)
-      redirect_to admin_social_link_path(@social_link), notice: 'Social link was successfully updated.'
+      redirect_to admin_social_link_path(@social_link), notice: "Social link was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admin::SocialLinksController < Admin::BaseController
 
   def destroy
     @social_link.destroy
-    redirect_to admin_social_links_path, notice: 'Social link was successfully deleted.'
+    redirect_to admin_social_links_path, notice: "Social link was successfully deleted."
     end
 
   private
