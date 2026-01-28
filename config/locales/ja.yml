@@ -96,3 +96,10 @@ ja:
     terms_of_service: "利用規約"
     cookie_policy: "Cookie ポリシー"
     quick_links: "クイックリンク"
+    
+  gdpr:
+    title: "Cookie の同意"
+    message: "当社は、お客様の閲覧体験を向上させ、パーソナライズされたコンテンツを提供し、トラフィックを分析するために Cookie を使用しています。「すべて承諾」をクリックすることで、Cookie の使用に同意したことになります。"
+    accept: "すべて承諾"
+    decline: "拒否"
+    learn_more: "詳細を見る"

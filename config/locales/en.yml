@@ -96,3 +96,10 @@ en:
     terms_of_service: "Terms of Service"
     cookie_policy: "Cookie Policy"
     quick_links: "Quick Links"
+    
+  gdpr:
+    title: "Cookie Consent"
+    message: "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies."
+    accept: "Accept All"
+    decline: "Decline"
+    learn_more: "Learn More"

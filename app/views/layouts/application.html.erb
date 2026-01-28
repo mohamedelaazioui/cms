@@ -165,5 +165,110 @@
         </div>
       </div>
     </footer>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent" style="display: none;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mb-3 mb-lg-0">
+            <h5 class="mb-2"><%= t('gdpr.title') %></h5>
+            <p class="mb-0 small"><%= t('gdpr.message') %></p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <button id="acceptCookies" class="btn btn-primary me-2 mb-2 mb-lg-0">
+              <%= t('gdpr.accept') %>
+            </button>
+            <button id="declineCookies" class="btn btn-outline-secondary mb-2 mb-lg-0">
+              <%= t('gdpr.decline') %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .cookie-consent {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(33, 37, 41, 0.98);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+        z-index: 9999;
+        animation: slideUp 0.5s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .cookie-consent h5 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .cookie-consent .btn {
+        white-space: nowrap;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const cookieConsent = document.getElementById('cookieConsent');
+        const acceptBtn = document.getElementById('acceptCookies');
+        const declineBtn = document.getElementById('declineCookies');
+
+        // Check if user has already made a choice
+        if (!localStorage.getItem('cookieConsent')) {
+          // Show banner after a short delay
+          setTimeout(() => {
+            cookieConsent.style.display = 'block';
+          }, 1000);
+        }
+
+        // Handle accept
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('cookieConsent', 'accepted');
+          hideBanner();
+        });
+
+        // Handle decline
+        declineBtn.addEventListener('click', function() {
+          localStorage.setItem('cookieConsent', 'declined');
+          hideBanner();
+        });
+
+        function hideBanner() {
+          cookieConsent.style.animation = 'slideDown 0.5s ease-out';
+          setTimeout(() => {
+            cookieConsent.style.display = 'none';
+          }, 500);
+        }
+      });
+
+      // Add slide down animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideDown {
+          from {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateY(100%);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
 </body>
 </html>
