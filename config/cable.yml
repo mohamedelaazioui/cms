@@ -9,9 +9,7 @@ test:
   adapter: test
 
 production:
-  adapter: solid_cable
-  connects_to:
-    database:
-      writing: cable
-  polling_interval: 0.1.seconds
-  message_retention: 1.day
+  # Use Redis if available (recommended for Heroku), otherwise async adapter
+  adapter: <%= ENV['REDIS_URL'].present? ? 'redis' : 'async' %>
+  url: <%= ENV.fetch('REDIS_URL', nil) %>
+  channel_prefix: cms_production
