@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title><%= content_for(:title) || "Cms" %></title>
+    <meta charset="utf-8">
+    <title><%= meta_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<%= meta_description %>">
+    <meta name="keywords" content="<%= meta_keywords %>">
+    <meta name="author" content="CMS">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<%= canonical_url %>">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= canonical_url %>">
+    <meta property="og:title" content="<%= meta_title %>">
+    <meta property="og:description" content="<%= meta_description %>">
+    <meta property="og:image" content="<%= meta_image %>">
+    <meta property="og:locale" content="<%= I18n.locale == :ja ? 'ja_JP' : 'en_US' %>">
+    <meta property="og:site_name" content="CMS">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<%= canonical_url %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:image" content="<%= meta_image %>">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,6 +45,63 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
+    <% if Rails.application.config.tracking[:google_analytics].present? && Rails.application.config.tracking[:google_analytics] != 'GA_MEASUREMENT_ID' %>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.config.tracking[:google_analytics] %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= Rails.application.config.tracking[:google_analytics] %>', {
+        'page_title': '<%= meta_title %>',
+        'page_path': '<%= request.path %>',
+        'page_location': '<%= canonical_url %>'
+      });
+    </script>
+    <% end %>
+    
+    <% if Rails.application.config.tracking[:facebook_pixel].present? && Rails.application.config.tracking[:facebook_pixel] != 'YOUR_FACEBOOK_PIXEL_ID' %>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '<%= Rails.application.config.tracking[:facebook_pixel] %>');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=<%= Rails.application.config.tracking[:facebook_pixel] %>&ev=PageView&noscript=1"/>
+    </noscript>
+    <% end %>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CMS",
+      "url": "<%= request.base_url %>",
+      "logo": "<%= request.base_url %>/icon.png",
+      "description": "<%= meta_description %>",
+      "sameAs": [
+        "https://www.facebook.com/yourpage",
+        "https://www.instagram.com/yourpage",
+        "https://www.youtube.com/yourchannel"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "availableLanguage": ["English", "Japanese"]
+      }
+    }
+    </script>
   </head>
 
   <body class="container-fluid p-0">

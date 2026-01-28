@@ -22,4 +22,27 @@ module ApplicationHelper
       locale.to_s
     end
   end
+
+  def meta_title
+    content_for?(:meta_title) ? content_for(:meta_title) : "CMS - Content Management System"
+  end
+
+  def meta_description
+    content_for?(:meta_description) ? content_for(:meta_description) : 
+      "Professional CMS platform built with Ruby on Rails. Manage your content efficiently with our modern content management system."
+  end
+
+  def meta_keywords
+    content_for?(:meta_keywords) ? content_for(:meta_keywords) : 
+      "CMS, content management, Ruby on Rails, web development, services, EIKEN, grammar, junior high school exam, French, English, extra activities, programming, education, language learning"
+  end
+
+  def meta_image
+    content_for?(:meta_image) ? content_for(:meta_image) : 
+      "#{request.base_url}/icon.png"
+  end
+
+  def canonical_url
+    content_for?(:canonical_url) ? content_for(:canonical_url) : request.original_url
+  end
 end
