@@ -1,30 +1,163 @@
-<h1><%= t('services.title') %></h1>
+<div class="services-hero mb-5 text-center">
+  <h1 class="display-4 fw-bold mb-3"><%= t('services.title') %></h1>
+  <p class="lead text-muted"><%= t('services.subtitle', default: I18n.locale == :ja ? '質の高い教育サービスで、お客様の目標達成をサポートします' : 'Quality educational services to help you achieve your goals') %></p>
+</div>
 
 <% if @services.any? %>
-  <div class="row">
-    <% @services.each do |service| %>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <% if service.icon.attached? %>
-            <div class="card-img-top text-center p-4">
-              <%= image_tag service.icon, style: 'max-width: 100px; max-height: 100px;' %>
+  <div class="row g-4">
+    <% @services.each_with_index do |service, index| %>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+          <div class="card-body p-4">
+            <!-- Icon Badge -->
+            <div class="service-icon-wrapper mb-4">
+              <% if service.icon.attached? %>
+                <div class="service-icon-custom text-center">
+                  <%= image_tag service.icon, class: 'img-fluid', style: 'max-width: 80px; max-height: 80px;' %>
+                </div>
+              <% else %>
+                <div class="service-icon bg-primary bg-gradient text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                  <%= content_tag(:i, '', class: get_service_icon_class(service.title)) %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= service.title %></h5>
-            <p class="card-text"><%= service.description %></p>
+            
+            <!-- Title -->
+            <h4 class="card-title fw-bold text-center mb-3"><%= service.title %></h4>
+            
+            <!-- Description -->
+            <p class="card-text text-muted text-center"><%= service.description %></p>
+            
+            <!-- CTA Button -->
+            <div class="text-center mt-4">
+              <%= link_to t('services.learn_more', default: I18n.locale == :ja ? '詳しく見る' : 'Learn More'), 
+                  new_contact_message_path, 
+                  class: 'btn btn-outline-primary btn-sm px-4' %>
+            </div>
           </div>
+          
+          <!-- Hover Gradient Overlay -->
+          <div class="service-card-overlay"></div>
         </div>
       </div>
     <% end %>
   </div>
+  
+  <!-- Call to Action Section -->
+  <div class="cta-section mt-5 p-5 bg-light rounded-3 text-center">
+    <h3 class="mb-3"><%= t('services.cta_title', default: I18n.locale == :ja ? 'まずはお気軽にご相談ください' : 'Ready to Get Started?') %></h3>
+    <p class="text-muted mb-4"><%= t('services.cta_text', default: I18n.locale == :ja ? '無料相談を実施中。お客様に最適なプランをご提案いたします。' : 'Contact us today for a free consultation and find the perfect program for you.') %></p>
+    <%= link_to t('services.contact_us'), new_contact_message_path, class: 'btn btn-primary btn-lg px-5 me-2' %>
+    <%= link_to t('services.back_to_home'), root_path, class: 'btn btn-outline-secondary btn-lg px-5' %>
+  </div>
 <% else %>
-  <div class="alert alert-info">
-    <p><%= t('services.no_services') %></p>
+  <div class="alert alert-info text-center">
+    <i class="bi bi-info-circle me-2"></i>
+    <p class="mb-0"><%= t('services.no_services') %></p>
   </div>
 <% end %>
 
-<div class="mt-4">
-  <%= link_to t('services.contact_us'), new_contact_message_path, class: 'btn btn-primary' %>
-  <%= link_to t('services.back_to_home'), root_path, class: 'btn btn-secondary' %>
-</div>
+<style>
+  .services-hero {
+    padding: 2rem 0;
+  }
+
+  .service-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: white;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  }
+
+  .service-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(13, 110, 253, 0.1) 100%);
+    transition: height 0.3s ease;
+    z-index: 0;
+  }
+
+  .service-card:hover .service-card-overlay {
+    height: 100%;
+  }
+
+  .service-card .card-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-icon-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-icon {
+    transition: transform 0.3s ease;
+    font-size: 2.5rem;
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.1);
+  }
+
+  .service-icon i {
+    font-size: 2rem;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border: 1px solid #dee2e6;
+  }
+
+  .card-title {
+    color: #212529;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-text {
+    min-height: 6rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .services-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .card-title {
+      min-height: auto;
+    }
+    
+    .card-text {
+      min-height: auto;
+    }
+  }
+</style>
+
+<% content_for :head do %>
+  <style>
+    /* Bootstrap Icons fallback */
+    .bi::before {
+      display: inline-block;
+      font-family: 'Bootstrap Icons';
+      font-style: normal;
+      font-weight: normal !important;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      vertical-align: -.125em;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<% end %>

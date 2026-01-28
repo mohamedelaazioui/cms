@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_26_190709) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_28_182847) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -94,6 +94,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_26_190709) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "locale", default: "en"
+    t.index ["locale"], name: "index_services_on_locale"
   end
 
   create_table "social_links", force: :cascade do |t|
@@ -108,6 +110,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_26_190709) do
     t.text "quote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "locale", default: "en"
+    t.index ["locale"], name: "index_testimonials_on_locale"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

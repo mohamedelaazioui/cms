@@ -45,4 +45,23 @@ module ApplicationHelper
   def canonical_url
     content_for?(:canonical_url) ? content_for(:canonical_url) : request.original_url
   end
+
+  def get_service_icon_class(title)
+    case title.downcase
+    when /eiken|英検/
+      'fas fa-award'
+    when /grammar|英文法|文法/
+      'fas fa-book'
+    when /french|フランス語/
+      'fas fa-language'
+    when /exam|受験/
+      'fas fa-graduation-cap'
+    when /scratch|programming|プログラミング/
+      'fas fa-code'
+    when /japanese|日本語/
+      'fas fa-globe'
+    else
+      'fas fa-star'
+    end
+  end
 end

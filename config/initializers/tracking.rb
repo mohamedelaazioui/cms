@@ -1,9 +1,9 @@
 # Tracking and Analytics Configuration
 # Replace these placeholder values with your actual tracking IDs
 
-Rails.application.config.tracking = {
-  google_analytics: ENV.fetch('GOOGLE_ANALYTICS_ID', 'GA_MEASUREMENT_ID'),
-  facebook_pixel: ENV.fetch('FACEBOOK_PIXEL_ID', 'YOUR_FACEBOOK_PIXEL_ID'),
+Rails.application.config.x.tracking = {
+  google_analytics: ENV.fetch('GOOGLE_ANALYTICS_ID', nil),
+  facebook_pixel: ENV.fetch('FACEBOOK_PIXEL_ID', nil),
   google_tag_manager: ENV.fetch('GOOGLE_TAG_MANAGER_ID', nil)
 }
 

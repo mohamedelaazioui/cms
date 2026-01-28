@@ -1,7 +1,7 @@
 class PublicController < ApplicationController
     def home; end
     def about; end
-    def services; @services = Service.all; end
-    def testimonials; @testimonials = Testimonial.all; end
+    def services; @services = Service.by_locale(I18n.locale.to_s); end
+    def testimonials; @testimonials = Testimonial.by_locale(I18n.locale.to_s); end
     def contact; end
 end
