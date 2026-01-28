@@ -1,0 +1,7 @@
+# SSL certificates go here
+# Place your SSL certificate files:
+# - fullchain.pem (certificate + intermediate certificates)
+# - privkey.pem (private key)
+#
+# You can obtain free SSL certificates from Let's Encrypt:
+# https://letsencrypt.org/

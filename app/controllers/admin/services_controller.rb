@@ -19,7 +19,7 @@ class Admin::ServicesController < Admin::BaseController
     @service = Service.new(service_params)
 
     if @service.save
-      redirect_to admin_service_path(@service), notice: 'Service was successfully created.'
+      redirect_to admin_service_path(@service), notice: "Service was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admin::ServicesController < Admin::BaseController
 
   def update
     if @service.update(service_params)
-      redirect_to admin_service_path(@service), notice: 'Service was successfully updated.'
+      redirect_to admin_service_path(@service), notice: "Service was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

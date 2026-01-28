@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admins
 
+  # Health check endpoints for monitoring and load balancers
+  get '/health', to: 'health#show'
+  get '/health/ready', to: 'health#ready'
+  get '/health/live', to: 'health#live'
+
   namespace :admin do
     root 'dashboard#index'
     resources :pages

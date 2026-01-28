@@ -19,7 +19,7 @@ class Admin::PagesController < Admin::BaseController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to admin_page_path(@page), notice: 'Page was successfully created.'
+      redirect_to admin_page_path(@page), notice: "Page was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admin::PagesController < Admin::BaseController
 
   def update
     if @page.update(page_params)
-      redirect_to admin_page_path(@page), notice: 'Page was successfully updated.'
+      redirect_to admin_page_path(@page), notice: "Page was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admin::PagesController < Admin::BaseController
 
   def destroy
     @page.destroy
-    redirect_to admin_pages_path, notice: 'Page was successfully deleted.'
+    redirect_to admin_pages_path, notice: "Page was successfully deleted."
   end
 
   private
