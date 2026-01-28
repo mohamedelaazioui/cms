@@ -85,3 +85,14 @@ en:
     save: "Save"
     cancel: "Cancel"
     confirm: "Are you sure?"
+    
+  footer:
+    company_info: "Company Information"
+    about_us: "About Us"
+    all_rights_reserved: "All rights reserved."
+    follow_us: "Follow Us"
+    legal: "Legal"
+    privacy_policy: "Privacy Policy"
+    terms_of_service: "Terms of Service"
+    cookie_policy: "Cookie Policy"
+    quick_links: "Quick Links"

@@ -85,3 +85,14 @@ ja:
     save: "保存"
     cancel: "キャンセル"
     confirm: "本当によろしいですか？"
+    
+  footer:
+    company_info: "会社情報"
+    about_us: "会社概要"
+    all_rights_reserved: "全著作権所有。"
+    follow_us: "フォローする"
+    legal: "法的情報"
+    privacy_policy: "プライバシーポリシー"
+    terms_of_service: "利用規約"
+    cookie_policy: "Cookie ポリシー"
+    quick_links: "クイックリンク"
