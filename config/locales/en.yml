@@ -1,6 +1,87 @@
 en:
   site:
-  home: "Home"
-  about: "About"
-  services: "Services"
-  contact: "Contact"
+    home: "Home"
+    about: "About"
+    services: "Services"
+    contact: "Contact"
+    testimonials: "Testimonials"
+    send_message: "Send Message"
+    name: "Name"
+    email: "Email"
+    phone: "Phone"
+    message: "Message"
+    submit: "Submit"
+    
+  navigation:
+    home: "Home"
+    about: "About"
+    services: "Services"
+    testimonials: "Testimonials"
+    contact: "Contact"
+    
+  home:
+    welcome_title: "Welcome to Our CMS"
+    welcome_subtitle: "This is a simple content management system built with Ruby on Rails."
+    view_services: "View Services"
+    contact_us: "Contact Us"
+    about_section_title: "About Us"
+    about_section_text: "Learn more about our company and what we do."
+    learn_more: "Learn More"
+    testimonials_section_title: "What Our Clients Say"
+    testimonials_section_text: "Read testimonials from our satisfied customers."
+    view_testimonials: "View Testimonials"
+    
+  about:
+    title: "About Us"
+    welcome_text: "Welcome to our company. We are dedicated to providing the best services to our clients."
+    team_text: "Our team of professionals is committed to excellence and customer satisfaction."
+    mission_title: "Our Mission"
+    mission_text: "To deliver outstanding services that exceed expectations and build lasting relationships with our clients."
+    view_services: "View Our Services"
+    contact_us: "Contact Us"
+    
+  services:
+    title: "Our Services"
+    no_services: "No services available at the moment. Please check back later."
+    contact_us: "Contact Us"
+    back_to_home: "Back to Home"
+    
+  testimonials:
+    title: "What Our Clients Say"
+    no_testimonials: "No testimonials available at the moment."
+    view_services: "View Services"
+    back_to_home: "Back to Home"
+    
+  contact:
+    title: "Contact Us"
+    subtitle: "Get in touch with us"
+    success: "Thank you for your message. We'll be in touch soon."
+    error: "An error occurred. Please try again."
+    name: "Name"
+    email: "Email"
+    message: "Message"
+    send_message: "Send Message"
+    cancel: "Cancel"
+    card_title: "Get in Touch"
+    card_text: "Have a question or want to work with us? Send us a message and we'll get back to you as soon as possible."
+    errors_prohibited: "prohibited this message from being sent:"
+    
+  admin:
+    dashboard: "Dashboard"
+    pages: "Pages"
+    services: "Services"
+    testimonials: "Testimonials"
+    social_links: "Social Links"
+    sign_out: "Sign Out"
+    admin_panel: "Admin Panel"
+    admin_login: "Admin Login"
+    
+  actions:
+    new: "New"
+    edit: "Edit"
+    delete: "Delete"
+    show: "Show"
+    back: "Back"
+    save: "Save"
+    cancel: "Cancel"
+    confirm: "Are you sure?"

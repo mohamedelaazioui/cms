@@ -9,9 +9,11 @@ Rails.application.routes.draw do
     resources :social_links
   end
 
-  resources :contact_messages, only: %i[new create]
-  root 'public#home'
-  get '/about', to: 'public#about'
-  get '/services', to: 'public#services'
-  get '/testimonials', to: 'public#testimonials'
+  scope '(:locale)', locale: /en|ja/ do
+    resources :contact_messages, only: %i[new create]
+    root 'public#home'
+    get '/about', to: 'public#about'
+    get '/services', to: 'public#services'
+    get '/testimonials', to: 'public#testimonials'
+  end
 end

@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>About Us</h1>
+    <h1><%= t('about.title') %></h1>
     <div class="lead">
-      <p>Welcome to our company. We are dedicated to providing the best services to our clients.</p>
-      <p>Our team of professionals is committed to excellence and customer satisfaction.</p>
+      <p><%= t('about.welcome_text') %></p>
+      <p><%= t('about.team_text') %></p>
     </div>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-12">
-    <h2>Our Mission</h2>
-    <p>To deliver outstanding services that exceed expectations and build lasting relationships with our clients.</p>
+    <h2><%= t('about.mission_title') %></h2>
+    <p><%= t('about.mission_text') %></p>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-12">
-    <%= link_to 'View Our Services', services_path, class: 'btn btn-primary' %>
-    <%= link_to 'Contact Us', new_contact_message_path, class: 'btn btn-secondary' %>
+    <%= link_to t('about.view_services'), services_path, class: 'btn btn-primary' %>
+    <%= link_to t('about.contact_us'), new_contact_message_path, class: 'btn btn-secondary' %>
   </div>
 </div>

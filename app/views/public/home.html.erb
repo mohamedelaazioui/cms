@@ -1,22 +1,22 @@
 <div class="jumbotron bg-light p-5 rounded-3 mb-4">
   <div class="container-fluid py-5">
-    <h1 class="display-4">Welcome to Our CMS</h1>
-    <p class="lead">This is a simple content management system built with Ruby on Rails.</p>
-    <%= link_to 'View Services', services_path, class: 'btn btn-primary btn-lg' %>
-    <%= link_to 'Contact Us', new_contact_message_path, class: 'btn btn-secondary btn-lg' %>
+    <h1 class="display-4"><%= t('home.welcome_title') %></h1>
+    <p class="lead"><%= t('home.welcome_subtitle') %></p>
+    <%= link_to t('home.view_services'), services_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to t('home.contact_us'), new_contact_message_path, class: 'btn btn-secondary btn-lg' %>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <h2>About Us</h2>
-    <p>Learn more about our company and what we do.</p>
-    <%= link_to 'Learn More', about_path, class: 'btn btn-outline-primary' %>
+    <h2><%= t('home.about_section_title') %></h2>
+    <p><%= t('home.about_section_text') %></p>
+    <%= link_to t('home.learn_more'), about_path, class: 'btn btn-outline-primary' %>
   </div>
   
   <div class="col-md-6">
-    <h2>What Our Clients Say</h2>
-    <p>Read testimonials from our satisfied customers.</p>
-    <%= link_to 'View Testimonials', testimonials_path, class: 'btn btn-outline-primary' %>
+    <h2><%= t('home.testimonials_section_title') %></h2>
+    <p><%= t('home.testimonials_section_text') %></p>
+    <%= link_to t('home.view_testimonials'), testimonials_path, class: 'btn btn-outline-primary' %>
   </div>
 </div>

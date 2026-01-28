@@ -1,6 +1,87 @@
 ja:
   site:
-  home: "ホーム"
-  about: "会社情報"
-  services: "サービス"
-  contact: "お問い合わせ"
+    home: "ホーム"
+    about: "会社情報"
+    services: "サービス"
+    contact: "お問い合わせ"
+    testimonials: "お客様の声"
+    send_message: "送信"
+    name: "お名前"
+    email: "メールアドレス"
+    phone: "電話番号"
+    message: "メッセージ"
+    submit: "送信する"
+    
+  navigation:
+    home: "ホーム"
+    about: "会社情報"
+    services: "サービス"
+    testimonials: "お客様の声"
+    contact: "お問い合わせ"
+    
+  home:
+    welcome_title: "CMSへようこそ"
+    welcome_subtitle: "Ruby on Railsで構築されたシンプルなコンテンツ管理システムです。"
+    view_services: "サービスを見る"
+    contact_us: "お問い合わせ"
+    about_section_title: "会社情報"
+    about_section_text: "私たちの会社と事業内容について詳しくご覧ください。"
+    learn_more: "詳しく見る"
+    testimonials_section_title: "お客様の声"
+    testimonials_section_text: "満足いただいたお客様の声をお読みください。"
+    view_testimonials: "お客様の声を見る"
+    
+  about:
+    title: "会社情報"
+    welcome_text: "私たちの会社へようこそ。お客様に最高のサービスを提供することに専念しています。"
+    team_text: "私たちの専門家チームは、卓越性とお客様満足に尽力しています。"
+    mission_title: "私たちの使命"
+    mission_text: "期待を超える優れたサービスを提供し、お客様との永続的な関係を築くこと。"
+    view_services: "サービスを見る"
+    contact_us: "お問い合わせ"
+    
+  services:
+    title: "サービス一覧"
+    no_services: "現在、サービスはございません。後ほどご確認ください。"
+    contact_us: "お問い合わせ"
+    back_to_home: "ホームへ戻る"
+    
+  testimonials:
+    title: "お客様の声"
+    no_testimonials: "現在、お客様の声はございません。"
+    view_services: "サービスを見る"
+    back_to_home: "ホームへ戻る"
+    
+  contact:
+    title: "お問い合わせ"
+    subtitle: "お気軽にご連絡ください"
+    success: "お問い合わせありがとうございます。ご連絡いたします。"
+    error: "エラーが発生しました。もう一度お試しください。"
+    name: "お名前"
+    email: "メールアドレス"
+    message: "メッセージ"
+    send_message: "送信する"
+    cancel: "キャンセル"
+    card_title: "お問い合わせください"
+    card_text: "ご質問や一緒に働きたい場合は、メッセージをお送りください。できるだけ早くご返信いたします。"
+    errors_prohibited: "により、このメッセージは送信できませんでした："
+    
+  admin:
+    dashboard: "ダッシュボード"
+    pages: "ページ"
+    services: "サービス"
+    testimonials: "お客様の声"
+    social_links: "ソーシャルリンク"
+    sign_out: "ログアウト"
+    admin_panel: "管理パネル"
+    admin_login: "管理者ログイン"
+    
+  actions:
+    new: "新規作成"
+    edit: "編集"
+    delete: "削除"
+    show: "詳細"
+    back: "戻る"
+    save: "保存"
+    cancel: "キャンセル"
+    confirm: "本当によろしいですか？"

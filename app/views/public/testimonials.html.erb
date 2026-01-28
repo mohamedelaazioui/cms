@@ -1,4 +1,4 @@
-<h1>What Our Clients Say</h1>
+<h1><%= t('testimonials.title') %></h1>
 
 <% if @testimonials.any? %>
   <div class="row">
@@ -23,11 +23,11 @@
   </div>
 <% else %>
   <div class="alert alert-info">
-    <p>No testimonials available at the moment.</p>
+    <p><%= t('testimonials.no_testimonials') %></p>
   </div>
 <% end %>
 
 <div class="mt-4">
-  <%= link_to 'View Services', services_path, class: 'btn btn-primary' %>
-  <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %>
+  <%= link_to t('testimonials.view_services'), services_path, class: 'btn btn-primary' %>
+  <%= link_to t('testimonials.back_to_home'), root_path, class: 'btn btn-secondary' %>
 </div>
