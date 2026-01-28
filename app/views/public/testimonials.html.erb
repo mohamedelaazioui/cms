@@ -1,0 +1,33 @@
+<h1>What Our Clients Say</h1>
+
+<% if @testimonials.any? %>
+  <div class="row">
+    <% @testimonials.each do |testimonial| %>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <% if testimonial.avatar.attached? %>
+                <%= image_tag testimonial.avatar, style: 'width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;' %>
+              <% end %>
+              <div>
+                <h5 class="card-title mb-0"><%= testimonial.name %></h5>
+              </div>
+            </div>
+            
+            <p class="card-text"><%= testimonial.quote %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="alert alert-info">
+    <p>No testimonials available at the moment.</p>
+  </div>
+<% end %>
+
+<div class="mt-4">
+  <%= link_to 'View Services', services_path, class: 'btn btn-primary' %>
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %>
+</div>

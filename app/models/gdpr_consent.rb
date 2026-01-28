@@ -1,0 +1,2 @@
+class GdprConsent < ApplicationRecord
+end

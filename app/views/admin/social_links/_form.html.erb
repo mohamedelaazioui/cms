@@ -1,0 +1,28 @@
+<%= form_with(model: [:admin, social_link], local: true, class: 'needs-validation') do |form| %>
+  <% if social_link.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(social_link.errors.count, "error") %> prohibited this social link from being saved:</h4>
+      <ul>
+        <% social_link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
+    <div class="form-text">e.g., Twitter, Facebook, LinkedIn</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :url, class: 'form-label' %>
+    <%= form.url_field :url, class: 'form-control', required: true %>
+    <div class="form-text">Full URL including https://</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

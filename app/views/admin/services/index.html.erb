@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Services</h1>
+  <%= link_to 'New Service', new_admin_service_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @services.each do |service| %>
+          <tr>
+            <td><%= service.position %></td>
+            <td><%= service.title %></td>
+            <td><%= truncate(service.description, length: 100) %></td>
+            <td>
+              <%= link_to 'Show', admin_service_path(service), class: 'btn btn-sm btn-info' %>
+              <%= link_to 'Edit', edit_admin_service_path(service), class: 'btn btn-sm btn-warning' %>
+              <%= button_to 'Delete', admin_service_path(service), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

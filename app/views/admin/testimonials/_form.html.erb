@@ -1,0 +1,36 @@
+<%= form_with(model: [:admin, testimonial], local: true, class: 'needs-validation') do |form| %>
+  <% if testimonial.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h4>
+      <ul>
+        <% testimonial.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :quote, class: 'form-label' %>
+    <%= form.text_area :quote, class: 'form-control', rows: 5, required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :avatar, class: 'form-label' %>
+    <%= form.file_field :avatar, class: 'form-control', accept: 'image/*' %>
+    <% if testimonial.avatar.attached? %>
+      <div class="mt-2">
+        <%= image_tag testimonial.avatar, style: 'max-width: 100px; max-height: 100px; border-radius: 50%;' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

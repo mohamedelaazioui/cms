@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Pages</h1>
+  <%= link_to 'New Page', new_admin_page_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Slug</th>
+          <th>Published</th>
+          <th>Locale</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+            <td><%= page.title %></td>
+            <td><%= page.slug %></td>
+            <td>
+              <% if page.published %>
+                <span class="badge bg-success">Yes</span>
+              <% else %>
+                <span class="badge bg-secondary">No</span>
+              <% end %>
+            </td>
+            <td><%= page.locale %></td>
+            <td>
+              <%= link_to 'Show', admin_page_path(page), class: 'btn btn-sm btn-info' %>
+              <%= link_to 'Edit', edit_admin_page_path(page), class: 'btn btn-sm btn-warning' %>
+              <%= button_to 'Delete', admin_page_path(page), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

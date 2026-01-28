@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Dashboard</h1>
+    <p class="lead">Welcome to the CMS Admin Panel</p>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Pages</h5>
+        <p class="card-text display-4"><%= @pages_count %></p>
+        <%= link_to 'Manage', admin_pages_path, class: 'btn btn-light btn-sm' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Services</h5>
+        <p class="card-text display-4"><%= @services_count %></p>
+        <%= link_to 'Manage', admin_services_path, class: 'btn btn-light btn-sm' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Testimonials</h5>
+        <p class="card-text display-4"><%= @testimonials_count %></p>
+        <%= link_to 'Manage', admin_testimonials_path, class: 'btn btn-light btn-sm' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-white bg-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Messages</h5>
+        <p class="card-text display-4"><%= @contact_messages_count %></p>
+        <a href="#" class="btn btn-light btn-sm">View</a>
+      </div>
+    </div>
+  </div>
+</div>

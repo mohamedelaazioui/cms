@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Testimonials</h1>
+  <%= link_to 'New Testimonial', new_admin_testimonial_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quote</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @testimonials.each do |testimonial| %>
+          <tr>
+            <td><%= testimonial.name %></td>
+            <td><%= truncate(testimonial.quote, length: 100) %></td>
+            <td>
+              <%= link_to 'Show', admin_testimonial_path(testimonial), class: 'btn btn-sm btn-info' %>
+              <%= link_to 'Edit', edit_admin_testimonial_path(testimonial), class: 'btn btn-sm btn-warning' %>
+              <%= button_to 'Delete', admin_testimonial_path(testimonial), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

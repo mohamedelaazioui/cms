@@ -1,0 +1,30 @@
+<h1>Our Services</h1>
+
+<% if @services.any? %>
+  <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <% if service.icon.attached? %>
+            <div class="card-img-top text-center p-4">
+              <%= image_tag service.icon, style: 'max-width: 100px; max-height: 100px;' %>
+            </div>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= service.title %></h5>
+            <p class="card-text"><%= service.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="alert alert-info">
+    <p>No services available at the moment. Please check back later.</p>
+  </div>
+<% end %>
+
+<div class="mt-4">
+  <%= link_to 'Contact Us', new_contact_message_path, class: 'btn btn-primary' %>
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %>
+</div>

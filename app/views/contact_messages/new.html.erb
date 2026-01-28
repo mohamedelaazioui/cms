@@ -1,0 +1,47 @@
+<h1>Contact Us</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_with(model: @contact_message, local: true, class: 'needs-validation') do |form| %>
+      <% if @contact_message.errors.any? %>
+        <div class="alert alert-danger">
+          <h4><%= pluralize(@contact_message.errors.count, "error") %> prohibited this message from being sent:</h4>
+          <ul>
+            <% @contact_message.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :name, class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :email, class: 'form-label' %>
+        <%= form.email_field :email, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :message, class: 'form-label' %>
+        <%= form.text_area :message, class: 'form-control', rows: 6, required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit 'Send Message', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', root_path, class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Get in Touch</h5>
+        <p class="card-text">Have a question or want to work with us? Send us a message and we'll get back to you as soon as possible.</p>
+      </div>
+    </div>
+  </div>
+</div>

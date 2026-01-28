@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip: MyString
+  accepted_at: 2026-01-26 20:06:52
+
+two:
+  ip: MyString
+  accepted_at: 2026-01-26 20:06:52

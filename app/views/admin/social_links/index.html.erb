@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Social Links</h1>
+  <%= link_to 'New Social Link', new_admin_social_link_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @social_links.each do |social_link| %>
+          <tr>
+            <td><%= social_link.name %></td>
+            <td><%= link_to social_link.url, social_link.url, target: '_blank', rel: 'noopener' %></td>
+            <td>
+              <%= link_to 'Show', admin_social_link_path(social_link), class: 'btn btn-sm btn-info' %>
+              <%= link_to 'Edit', edit_admin_social_link_path(social_link), class: 'btn btn-sm btn-warning' %>
+              <%= button_to 'Delete', admin_social_link_path(social_link), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
