@@ -97,6 +97,31 @@ After running `db:seed`, you can log in to the admin panel:
 
 ## 🐳 Production Deployment
 
+### Quick Deploy to Heroku
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Or manually:
+
+```bash
+# Login to Heroku
+heroku login
+
+# Create app
+heroku create your-app-name
+
+# Add PostgreSQL
+heroku addons:create heroku-postgresql:essential-0
+
+# Deploy
+git push heroku main
+
+# Setup database
+heroku run rails db:migrate db:seed
+```
+
+See [HEROKU.md](HEROKU.md) for complete Heroku deployment guide.
+
 ### Using Docker Compose
 
 ```bash

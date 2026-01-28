@@ -1,0 +1,58 @@
+{
+  "name": "CMS",
+  "description": "Bilingual Content Management System built with Ruby on Rails",
+  "repository": "https://github.com/mohamedelaazioui/cms",
+  "logo": "",
+  "keywords": ["ruby", "rails", "cms", "postgresql", "heroku"],
+  "stack": "heroku-24",
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
+    }
+  ],
+  "env": {
+    "RAILS_ENV": {
+      "value": "production"
+    },
+    "RACK_ENV": {
+      "value": "production"
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "value": "enabled"
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "value": "enabled"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "Rails secret key base (generate with: rails secret)",
+      "generator": "secret"
+    },
+    "RAILS_MASTER_KEY": {
+      "description": "Rails master key for encrypted credentials",
+      "required": false
+    },
+    "LANG": {
+      "value": "en_US.UTF-8"
+    },
+    "APP_VERSION": {
+      "value": "1.0.0"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rails db:seed"
+  }
+}

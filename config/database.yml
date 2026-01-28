@@ -82,20 +82,15 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: cms_production
-    username: cms
-    password: <%= ENV["CMS_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: cms_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: cms_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: cms_production_cable
-    migrations_paths: db/cable_migrate
+  # Heroku provides DATABASE_URL automatically
+  url: <%= ENV.fetch("DATABASE_URL", nil) %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
+  # Fallback configuration if DATABASE_URL is not set
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV.fetch("DB_NAME", "cms_production") %>
+  username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "") %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= ENV.fetch("DB_PORT", "5432") %>
