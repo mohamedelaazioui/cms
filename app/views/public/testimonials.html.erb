@@ -1,25 +1,70 @@
-<h1><%= t('testimonials.title') %></h1>
+<h1 class="text-center mb-5"><%= t('testimonials.title') %></h1>
 
 <% if @testimonials.any? %>
-  <div class="row">
-    <% @testimonials.each do |testimonial| %>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <% if testimonial.avatar.attached? %>
-                <%= image_tag testimonial.avatar, style: 'width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;' %>
-              <% end %>
-              <div>
-                <h5 class="card-title mb-0"><%= testimonial.name %></h5>
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <% @testimonials.each_with_index do |testimonial, index| %>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="<%= index %>" 
+                class="<%= 'active' if index == 0 %>" 
+                aria-current="<%= 'true' if index == 0 %>" 
+                aria-label="Slide <%= index + 1 %>"></button>
+      <% end %>
+    </div>
+
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+      <% @testimonials.each_with_index do |testimonial, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="card shadow-lg border-0">
+                <div class="card-body p-5 text-center">
+                  <% if testimonial.avatar.attached? %>
+                    <%= image_tag testimonial.avatar, 
+                        style: 'width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px;',
+                        class: 'mx-auto d-block' %>
+                  <% else %>
+                    <div class="bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" 
+                         style="width: 100px; height: 100px; font-size: 2.5rem;">
+                      <%= testimonial.name[0].upcase %>
+                    </div>
+                  <% end %>
+                  
+                  <h3 class="card-title mb-3"><%= testimonial.name %></h3>
+                  
+                  <div class="mb-3">
+                    <i class="fas fa-quote-left text-primary" style="font-size: 2rem; opacity: 0.3;"></i>
+                  </div>
+                  
+                  <p class="card-text lead" style="font-style: italic; font-size: 1.2rem; line-height: 1.8;">
+                    <%= testimonial.quote %>
+                  </p>
+                  
+                  <div class="mt-3">
+                    <i class="fas fa-quote-right text-primary" style="font-size: 2rem; opacity: 0.3;"></i>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <p class="card-text"><%= testimonial.quote %></p>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="text-center mt-4">
+    <small class="text-muted"><%= t('testimonials.carousel_info', count: @testimonials.count, default: "#{@testimonials.count} testimonials - Auto-advances every 5 seconds") %></small>
   </div>
 <% else %>
   <div class="alert alert-info">
@@ -27,7 +72,7 @@
   </div>
 <% end %>
 
-<div class="mt-4">
-  <%= link_to t('testimonials.view_services'), services_path, class: 'btn btn-primary' %>
-  <%= link_to t('testimonials.back_to_home'), root_path, class: 'btn btn-secondary' %>
+<div class="mt-5 text-center">
+  <%= link_to t('testimonials.view_services'), services_path, class: 'btn btn-primary btn-lg' %>
+  <%= link_to t('testimonials.back_to_home'), root_path, class: 'btn btn-secondary btn-lg' %>
 </div>
