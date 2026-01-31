@@ -1,22 +1,210 @@
-<div class="jumbotron bg-light p-5 rounded-3 mb-4">
+<!-- Hero Section -->
+<div class="jumbotron bg-light p-5 rounded-3 mb-5">
   <div class="container-fluid py-5">
     <h1 class="display-4"><%= t('home.welcome_title') %></h1>
     <p class="lead"><%= t('home.welcome_subtitle') %></p>
-    <%= link_to t('home.view_services'), services_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to t('home.view_services'), "#services", class: 'btn btn-primary btn-lg' %>
     <%= link_to t('home.contact_us'), new_contact_message_path, class: 'btn btn-secondary btn-lg' %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <h2><%= t('home.about_section_title') %></h2>
-    <p><%= t('home.about_section_text') %></p>
-    <%= link_to t('home.learn_more'), about_path, class: 'btn btn-outline-primary' %>
+<!-- About Section -->
+<section id="about" class="mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="mb-4"><%= t('about.title') %></h1>
+      <div class="lead">
+        <p><%= t('about.welcome_text') %></p>
+        <p><%= t('about.team_text') %></p>
+      </div>
+    </div>
   </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2><%= t('about.mission_title') %></h2>
+      <p><%= t('about.mission_text') %></p>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="mb-5">
+  <div class="services-hero mb-5 text-center">
+    <h1 class="display-4 fw-bold mb-3"><%= t('services.title') %></h1>
+    <p class="lead text-muted"><%= t('services.subtitle', default: I18n.locale == :ja ? '質の高い教育サービスで、お客様の目標達成をサポートします' : 'Quality educational services to help you achieve your goals') %></p>
+  </div>
+
+  <% if @services.any? %>
+    <div class="row g-4 mb-5">
+      <% @services.each_with_index do |service, index| %>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+            <div class="card-body p-4">
+              <!-- Icon Badge -->
+              <div class="service-icon-wrapper mb-4">
+                <% if service.icon.attached? %>
+                  <div class="service-icon-custom text-center">
+                    <%= image_tag service.icon, class: 'img-fluid', style: 'max-width: 80px; max-height: 80px;' %>
+                  </div>
+                <% else %>
+                  <div class="service-icon bg-primary bg-gradient text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                    <i class="bi bi-book fs-1"></i>
+                  </div>
+                <% end %>
+              </div>
+              
+              <!-- Title -->
+              <h4 class="card-title fw-bold text-center mb-3"><%= service.title %></h4>
+              
+              <!-- Description -->
+              <p class="card-text text-muted text-center"><%= service.description %></p>
+              
+              <!-- CTA Button -->
+              <div class="text-center mt-4">
+                <%= link_to t('services.learn_more', default: I18n.locale == :ja ? '詳しく見る' : 'Learn More'), 
+                    new_contact_message_path, 
+                    class: 'btn btn-outline-primary btn-sm px-4' %>
+              </div>
+            </div>
+            
+            <!-- Hover Gradient Overlay -->
+            <div class="service-card-overlay"></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="alert alert-info text-center mb-5">
+      <i class="bi bi-info-circle me-2"></i>
+      <p class="mb-0"><%= t('services.no_services') %></p>
+    </div>
+  <% end %>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="mb-5">
+  <h1 class="text-center mb-5"><%= t('testimonials.title') %></h1>
+
+  <% if @testimonials.any? %>
+    <div id="testimonialCarouselHome" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <% @testimonials.each_with_index do |testimonial, index| %>
+          <button type="button" data-bs-target="#testimonialCarouselHome" data-bs-slide-to="<%= index %>" 
+                  class="<%= 'active' if index == 0 %>" 
+                  aria-current="<%= 'true' if index == 0 %>" 
+                  aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+
+      <!-- Carousel Inner -->
+      <div class="carousel-inner">
+        <% @testimonials.each_with_index do |testimonial, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="card shadow-lg border-0">
+                  <div class="card-body p-5 text-center">
+                    <% if testimonial.avatar.attached? %>
+                      <%= image_tag testimonial.avatar, 
+                          style: 'width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px;',
+                          class: 'mx-auto d-block' %>
+                    <% else %>
+                      <div class="bg-primary text-white rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" 
+                           style="width: 100px; height: 100px; font-size: 2.5rem;">
+                        <%= testimonial.name[0].upcase %>
+                      </div>
+                    <% end %>
+                    
+                    <h3 class="card-title mb-3"><%= testimonial.name %></h3>
+                    
+                    <div class="mb-3">
+                      <i class="fas fa-quote-left text-primary" style="font-size: 2rem; opacity: 0.3;"></i>
+                    </div>
+                    
+                    <p class="card-text lead" style="font-style: italic; font-size: 1.2rem; line-height: 1.8;">
+                      <%= testimonial.quote %>
+                    </p>
+                    
+                    <div class="mt-3">
+                      <i class="fas fa-quote-right text-primary" style="font-size: 2rem; opacity: 0.3;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarouselHome" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarouselHome" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="text-center mt-4">
+      <small class="text-muted"><%= t('testimonials.carousel_info', count: @testimonials.count, default: "#{@testimonials.count} testimonials - Auto-advances every 5 seconds") %></small>
+    </div>
+  <% else %>
+    <div class="alert alert-info text-center">
+      <p><%= t('testimonials.no_testimonials') %></p>
+    </div>
+  <% end %>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section p-5 bg-light rounded-3 text-center">
+  <h3 class="mb-3"><%= t('services.cta_title', default: I18n.locale == :ja ? 'まずはお気軽にご相談ください' : 'Ready to Get Started?') %></h3>
+  <p class="text-muted mb-4"><%= t('services.cta_text', default: I18n.locale == :ja ? '無料相談を実施中。お客様に最適なプランをご提案いたします。' : 'Contact us today for a free consultation and find the perfect program for you.') %></p>
+  <%= link_to t('services.contact_us'), new_contact_message_path, class: 'btn btn-primary btn-lg px-5' %>
+</section>
+
+<style>
+  section {
+    scroll-margin-top: 80px; /* Adjust based on navbar height */
+  }
+</style>
+
+<script>
+  // Initialize carousel immediately and on Turbo navigation
+  function initHomeCarousel() {
+    const carouselElement = document.querySelector('#testimonialCarouselHome');
+    if (carouselElement && typeof bootstrap !== 'undefined') {
+      // Dispose any existing carousel instance
+      const existingCarousel = bootstrap.Carousel.getInstance(carouselElement);
+      if (existingCarousel) {
+        existingCarousel.dispose();
+      }
+      
+      // Initialize new carousel with autoplay
+      const carousel = new bootstrap.Carousel(carouselElement, {
+        interval: 5000,
+        ride: 'carousel',
+        pause: false
+      });
+      
+      // Start cycling immediately
+      carousel.cycle();
+    }
+  }
   
-  <div class="col-md-6">
-    <h2><%= t('home.testimonials_section_title') %></h2>
-    <p><%= t('home.testimonials_section_text') %></p>
-    <%= link_to t('home.view_testimonials'), testimonials_path, class: 'btn btn-outline-primary' %>
-  </div>
-</div>
+  // Run on different events to ensure it works
+  document.addEventListener('DOMContentLoaded', initHomeCarousel);
+  document.addEventListener('turbo:load', initHomeCarousel);
+  document.addEventListener('turbo:render', initHomeCarousel);
+  
+  // Also try to initialize immediately if DOM is already loaded
+  if (document.readyState === 'loading') {
+    // Still loading, wait for DOMContentLoaded
+  } else {
+    // DOM is ready, initialize now
+    initHomeCarousel();
+  }
+</script>

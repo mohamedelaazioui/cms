@@ -1,9 +1,123 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+// Global color theme - Modern coral orange that's easy on the eyes
+$primary-orange: #ff6b35;    // Vibrant coral orange - catchy but pleasant
+$secondary-orange: #e65100;  // Darker burnt orange for accents
+$light-gray: #e9ecef;        // Slightly darker gray background
+$pleasant-black: #4a5568;    // Softer medium gray - very easy on eyes
+
+body {
+  background-color: $light-gray !important;
+  color: $pleasant-black !important;
+}
+
+// Override text colors for readability
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
+  color: $pleasant-black !important;
+}
+
+p, .lead, .text-muted {
+  color: $pleasant-black !important;
+}
+
+a {
+  color: $primary-orange !important;
+  
+  &:hover {
+    color: $secondary-orange !important;
+  }
+}
+
+// Navbar customization
+.navbar {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  .navbar-brand, .nav-link {
+    color: $primary-orange !important;
+    font-weight: 500;
+    
+    &:hover {
+      color: $secondary-orange !important;
+    }
+  }
+}
+
+// Button customization
+.btn-primary {
+  background-color: $primary-orange !important;
+  border-color: $primary-orange !important;
+  color: white !important;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: $secondary-orange !important;
+    border-color: $secondary-orange !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  }
+}
+
+.btn-outline-primary {
+  color: $primary-orange !important;
+  border-color: $primary-orange !important;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: $primary-orange !important;
+    border-color: $primary-orange !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  }
+}
+
+// Card customization
+.card {
+  background-color: #ffffff !important;
+  color: $pleasant-black !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+  .card-title {
+    color: $pleasant-black !important;
+  }
+  
+  .card-text {
+    color: $pleasant-black !important;
+  }
+}
+
+// Footer customization
+footer {
+  background-color: #2c3e50 !important;  // Dark slate background
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  
+  // All text elements in footer - softer off-white
+  &, p, h5, .small, a {
+    color: #d0d0d0 !important;
+  }
+  
+  // Footer links
+  a {
+    &:hover {
+      color: $primary-orange !important;
+    }
+  }
+}
+
 // Services page styles
 .services-hero {
   padding: 2rem 0;
+  
+  h1 {
+    color: $primary-orange !important;
+  }
+  
+  .lead {
+    color: $secondary-orange !important;
+  }
 }
 
 .service-card {
@@ -14,7 +128,7 @@
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    box-shadow: 0 1rem 3rem rgba(255, 107, 53, 0.2) !important;
 
     .service-card-overlay {
       height: 100%;
@@ -37,7 +151,7 @@
   left: 0;
   width: 100%;
   height: 0;
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(13, 110, 253, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 107, 53, 0.1) 100%);
   transition: height 0.3s ease;
   z-index: 0;
 }
@@ -56,13 +170,30 @@
   }
 }
 
+.bg-primary {
+  background-color: $primary-orange !important;
+}
+
+.text-primary {
+  color: $primary-orange !important;
+}
+
 .cta-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-  border: 1px solid #dee2e6;
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.1);
+  
+  h3 {
+    color: $primary-orange !important;
+  }
+  
+  p {
+    color: $secondary-orange !important;
+  }
 }
 
 .card-title {
-  color: #212529;
+  color: $primary-orange !important;
   min-height: 3rem;
   display: flex;
   align-items: center;
@@ -72,6 +203,21 @@
 .card-text {
   min-height: 6rem;
   line-height: 1.6;
+  color: $secondary-orange !important;
+}
+
+// Jumbotron styling
+.jumbotron {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%) !important;
+  border: none !important;
+  
+  h1, .display-4 {
+    color: $primary-orange !important;
+  }
+  
+  p, .lead {
+    color: $secondary-orange !important;
+  }
 }
 
 @media (max-width: 768px) {
