@@ -10,7 +10,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="<%= meta_description %>">
     <meta name="keywords" content="<%= meta_keywords %>">
-    <meta name="author" content="CMS">
+    <meta name="author" content="GIBU GUMI">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="<%= canonical_url %>">
     
@@ -21,7 +21,7 @@
     <meta property="og:description" content="<%= meta_description %>">
     <meta property="og:image" content="<%= meta_image %>">
     <meta property="og:locale" content="<%= I18n.locale == :ja ? 'ja_JP' : 'en_US' %>">
-    <meta property="og:site_name" content="CMS">
+    <meta property="og:site_name" content="GIBU GUMI">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -91,7 +91,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "CMS",
+      "name": "GIBU GUMI",
       "url": "<%= request.base_url %>",
       "logo": "<%= request.base_url %>/icon.png",
       "description": "<%= meta_description %>",
@@ -112,7 +112,7 @@
   <body class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <%= link_to 'CMS', root_path, class: 'navbar-brand' %>
+        <%= link_to 'GIBU GUMI', root_path, class: 'navbar-brand' %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -176,7 +176,7 @@
           <!-- Company Info -->
           <div class="col-md-4 mb-4">
             <h5 class="text-uppercase mb-3"><%= t('footer.company_info') %></h5>
-            <p class="mb-3">CMS</p>
+            <p class="mb-3">GIBU GUMI</p>
             <p class="small"><%= t('about.welcome_text') %></p>
           </div>
 
@@ -246,7 +246,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <p class="mb-0 small">
-              &copy; <%= Time.current.year %> CMS. <%= t('footer.all_rights_reserved') %>
+              &copy; <%= Time.current.year %> GIBU GUMI. <%= t('footer.all_rights_reserved') %>
             </p>
           </div>
         </div>

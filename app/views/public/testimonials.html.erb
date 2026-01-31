@@ -76,3 +76,23 @@
   <%= link_to t('testimonials.view_services'), services_path, class: 'btn btn-primary btn-lg' %>
   <%= link_to t('testimonials.back_to_home'), root_path, class: 'btn btn-secondary btn-lg' %>
 </div>
+
+<script>
+  // Initialize Bootstrap carousel on page load and Turbo navigation
+  document.addEventListener('turbo:load', function() {
+    const carouselElement = document.querySelector('#testimonialCarousel');
+    if (carouselElement) {
+      // Dispose any existing carousel instance
+      const existingCarousel = bootstrap.Carousel.getInstance(carouselElement);
+      if (existingCarousel) {
+        existingCarousel.dispose();
+      }
+      
+      // Initialize new carousel with autoplay
+      new bootstrap.Carousel(carouselElement, {
+        interval: 5000,
+        ride: 'carousel'
+      });
+    }
+  });
+</script>
