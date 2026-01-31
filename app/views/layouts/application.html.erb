@@ -350,6 +350,43 @@
             cookieConsent.style.display = 'none';
           }, 500);
         }
+        
+        // Enhanced smooth scrolling with game-like feel
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+        
+        // Add parallax effect on scroll
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              const scrolled = window.pageYOffset;
+              
+              // Parallax effect for sections
+              document.querySelectorAll('section').forEach((section, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed / 10);
+                section.style.transform = `translateY(${yPos}px)`;
+              });
+              
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
       });
     </script>
 </body>

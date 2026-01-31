@@ -7,9 +7,21 @@ $secondary-orange: #e65100;  // Darker burnt orange for accents
 $light-gray: #e9ecef;        // Slightly darker gray background
 $pleasant-black: #4a5568;    // Softer medium gray - very easy on eyes
 
+// Smooth scrolling - game-like experience
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; // Account for fixed navbar
+}
+
 body {
   background-color: $light-gray !important;
   color: $pleasant-black !important;
+  overflow-x: hidden; // Prevent horizontal scroll
+}
+
+// Smooth transitions for all interactive elements - 6x original for ultra smoothness
+* {
+  transition: transform 1.8s ease, opacity 1.8s ease;
 }
 
 // Override text colors for readability
