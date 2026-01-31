@@ -46,7 +46,7 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload", preload: false %>
     <%= javascript_importmap_tags %>
     
     <% ga_id = Rails.application.config.x.tracking[:google_analytics] if Rails.application.config.x.tracking rescue nil %>
@@ -296,6 +296,17 @@
         }
       }
 
+      @keyframes slideDown {
+        from {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+      }
+
       .cookie-consent h5 {
         font-size: 1.1rem;
         font-weight: 600;
@@ -340,22 +351,6 @@
           }, 500);
         }
       });
-
-      // Add slide down animation
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes slideDown {
-          from {
-            transform: translateY(0);
-            opacity: 1;
-          }
-          to {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-        }
-      `;
-      document.head.appendChild(style);
     </script>
 </body>
 </html>
