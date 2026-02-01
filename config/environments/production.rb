@@ -77,16 +77,24 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_HOST', 'gibugumi.com') }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch('MAILTRAP_USER', 'api'),
-    password: ENV.fetch('MAILTRAP_PASSWORD'),
-    address: ENV.fetch('MAILTRAP_HOST', 'live.smtp.mailtrap.io'),
-    domain: ENV.fetch('MAILER_HOST', 'gibugumi.com'),
-    port: ENV.fetch('MAILTRAP_PORT', '587'),
-    authentication: :login,
-    enable_starttls_auto: true
-  }
+  
+  # Configure SMTP only if credentials are available
+  if ENV['MAILTRAP_PASSWORD'].present?
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      user_name: ENV.fetch('MAILTRAP_USER', 'api'),
+      password: ENV['MAILTRAP_PASSWORD'],
+      address: ENV.fetch('MAILTRAP_HOST', 'live.smtp.mailtrap.io'),
+      domain: ENV.fetch('MAILER_HOST', 'gibugumi.com'),
+      port: ENV.fetch('MAILTRAP_PORT', '587'),
+      authentication: :login,
+      enable_starttls_auto: true
+    }
+  else
+    # Fallback to test mode if SMTP credentials not available
+    config.action_mailer.delivery_method = :test
+    Rails.logger.warn "MAILTRAP_PASSWORD not set. Email delivery disabled."
+  end
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {

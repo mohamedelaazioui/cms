@@ -11,7 +11,7 @@
 <!-- About Section -->
 <section id="about" class="mb-5">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
       <h1 class="mb-4"><%= t('about.title') %></h1>
       <div class="lead">
         <p><%= t('about.welcome_text') %></p>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="row mt-4">
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
       <h2><%= t('about.mission_title') %></h2>
       <p><%= t('about.mission_text') %></p>
     </div>
@@ -149,9 +149,6 @@
       </button>
     </div>
 
-    <div class="text-center mt-4">
-      <small class="text-muted"><%= t('testimonials.carousel_info', count: @testimonials.count, default: "#{@testimonials.count} testimonials - Auto-advances every 5 seconds") %></small>
-    </div>
   <% else %>
     <div class="alert alert-info text-center">
       <p><%= t('testimonials.no_testimonials') %></p>

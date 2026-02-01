@@ -29,6 +29,11 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
   color: $pleasant-black !important;
 }
 
+// Center all h1 elements in sections
+section h1, h1 {
+  text-align: center;
+}
+
 p, .lead, .text-muted {
   color: $pleasant-black !important;
 }
@@ -45,6 +50,9 @@ a {
 .navbar {
   background-color: #ffffff !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky !important;
+  top: 0;
+  z-index: 1030;
   
   .navbar-brand, .nav-link {
     color: $primary-orange !important;
@@ -52,6 +60,16 @@ a {
     
     &:hover {
       color: $secondary-orange !important;
+    }
+  }
+  
+  // Language switcher alignment
+  .btn-group {
+    display: flex;
+    gap: 0;
+    
+    .btn {
+      margin: 0;
     }
   }
 }
@@ -222,6 +240,7 @@ footer {
 .jumbotron {
   background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%) !important;
   border: none !important;
+  margin-top: 0 !important;
   
   h1, .display-4 {
     color: $primary-orange !important;
@@ -229,6 +248,28 @@ footer {
   
   p, .lead {
     color: $secondary-orange !important;
+  }
+}
+
+// Remove gap between navbar and main content
+main.container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+// Button alignment and spacing
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+
+// Contact form button container
+form .mb-3:last-child {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  
+  .btn {
+    margin: 0;
   }
 }
 
@@ -244,4 +285,49 @@ footer {
   .card-text {
     min-height: auto;
   }
+  
+  // Remove excessive spacing between sections on mobile
+  section {
+    margin-bottom: 2rem !important;
+  }
+  
+  .jumbotron {
+    margin-bottom: 2rem !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .services-hero {
+    margin-bottom: 2rem !important;
+    padding: 1rem 0 !important;
+  }
+  
+  // Button spacing on mobile - stack vertically with gap
+  form .mb-3:last-child {
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .btn {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  
+  // General button stacking on mobile
+  .btn + .btn {
+    margin-left: 0 !important;
+  }
 }
+
+// Tablet screens (768px - 991px)
+@media (min-width: 768px) and (max-width: 991px) {
+  // Add spacing between buttons on tablet when they stack
+  .btn + .btn {
+    margin-left: 0.5rem;
+  }
+  
+  // If buttons are in flex container and wrap
+  .d-flex.flex-wrap .btn {
+    margin-bottom: 0.5rem;
+  }
+}
+
