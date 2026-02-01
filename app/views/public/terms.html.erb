@@ -1,0 +1,130 @@
+<div class="container my-5">
+  <div class="row">
+    <!-- Sidebar Navigation -->
+    <div class="col-lg-3 mb-4">
+      <nav class="sticky-top" style="top: 100px;">
+        <h5 class="mb-3"><%= t('terms.title') %></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#acceptance"><%= t('terms.sections.acceptance.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#description"><%= t('terms.sections.description.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#user_obligations"><%= t('terms.sections.user_obligations.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#intellectual_property"><%= t('terms.sections.intellectual_property.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#disclaimer"><%= t('terms.sections.disclaimer.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#limitation_liability"><%= t('terms.sections.limitation_liability.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#indemnification"><%= t('terms.sections.indemnification.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#governing_law"><%= t('terms.sections.governing_law.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#severability"><%= t('terms.sections.severability.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#changes"><%= t('terms.sections.changes.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact"><%= t('terms.sections.contact.title') %></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-9">
+      <h1 class="mb-4"><%= t('terms.title') %></h1>
+      <p class="text-muted mb-5"><%= t('terms.last_updated') %></p>
+
+      <!-- Section 1: Acceptance -->
+      <section id="acceptance" class="mb-5">
+        <h2><%= t('terms.sections.acceptance.title') %></h2>
+        <p><%= t('terms.sections.acceptance.content') %></p>
+      </section>
+
+      <!-- Section 2: Description -->
+      <section id="description" class="mb-5">
+        <h2><%= t('terms.sections.description.title') %></h2>
+        <p><%= t('terms.sections.description.content') %></p>
+      </section>
+
+      <!-- Section 3: User Obligations -->
+      <section id="user_obligations" class="mb-5">
+        <h2><%= t('terms.sections.user_obligations.title') %></h2>
+        <p><%= t('terms.sections.user_obligations.content') %></p>
+        <ul>
+          <% t('terms.sections.user_obligations.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 4: Intellectual Property -->
+      <section id="intellectual_property" class="mb-5">
+        <h2><%= t('terms.sections.intellectual_property.title') %></h2>
+        <p><%= t('terms.sections.intellectual_property.content') %></p>
+      </section>
+
+      <!-- Section 5: Disclaimer -->
+      <section id="disclaimer" class="mb-5">
+        <h2><%= t('terms.sections.disclaimer.title') %></h2>
+        <p><%= t('terms.sections.disclaimer.content') %></p>
+        <ul>
+          <% t('terms.sections.disclaimer.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 6: Limitation of Liability -->
+      <section id="limitation_liability" class="mb-5">
+        <h2><%= t('terms.sections.limitation_liability.title') %></h2>
+        <p><%= t('terms.sections.limitation_liability.content') %></p>
+      </section>
+
+      <!-- Section 7: Indemnification -->
+      <section id="indemnification" class="mb-5">
+        <h2><%= t('terms.sections.indemnification.title') %></h2>
+        <p><%= t('terms.sections.indemnification.content') %></p>
+      </section>
+
+      <!-- Section 8: Governing Law -->
+      <section id="governing_law" class="mb-5">
+        <h2><%= t('terms.sections.governing_law.title') %></h2>
+        <p><%= t('terms.sections.governing_law.content') %></p>
+      </section>
+
+      <!-- Section 9: Severability -->
+      <section id="severability" class="mb-5">
+        <h2><%= t('terms.sections.severability.title') %></h2>
+        <p><%= t('terms.sections.severability.content') %></p>
+      </section>
+
+      <!-- Section 10: Changes -->
+      <section id="changes" class="mb-5">
+        <h2><%= t('terms.sections.changes.title') %></h2>
+        <p><%= t('terms.sections.changes.content') %></p>
+      </section>
+
+      <!-- Section 11: Contact -->
+      <section id="contact" class="mb-5">
+        <h2><%= t('terms.sections.contact.title') %></h2>
+        <p><%= t('terms.sections.contact.content') %></p>
+        <div class="mt-3">
+          <%= link_to t('navigation.contact'), new_contact_message_path, class: 'btn btn-primary' %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

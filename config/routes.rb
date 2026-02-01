@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     get "/about", to: "public#about"
     get "/services", to: "public#services"
     get "/testimonials", to: "public#testimonials"
+    get "/privacy", to: "public#privacy"
+    get "/terms", to: "public#terms"
+    get "/cookies", to: "public#cookies"
   end
 end

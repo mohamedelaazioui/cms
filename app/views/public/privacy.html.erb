@@ -1,0 +1,150 @@
+<div class="container my-5">
+  <div class="row">
+    <!-- Sidebar Navigation -->
+    <div class="col-lg-3 mb-4">
+      <nav class="sticky-top" style="top: 100px;">
+        <h5 class="mb-3"><%= t('privacy.title') %></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#introduction"><%= t('privacy.sections.introduction.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#information_we_collect"><%= t('privacy.sections.information_we_collect.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how_we_use"><%= t('privacy.sections.how_we_use.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cookies"><%= t('privacy.sections.cookies.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#data_sharing"><%= t('privacy.sections.data_sharing.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#data_retention"><%= t('privacy.sections.data_retention.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#your_rights"><%= t('privacy.sections.your_rights.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#security"><%= t('privacy.sections.security.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#international_transfers"><%= t('privacy.sections.international_transfers.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#changes"><%= t('privacy.sections.changes.title') %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact"><%= t('privacy.sections.contact.title') %></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-9">
+      <h1 class="mb-4"><%= t('privacy.title') %></h1>
+      <p class="text-muted mb-5"><%= t('privacy.last_updated') %></p>
+
+      <!-- Section 1: Introduction -->
+      <section id="introduction" class="mb-5">
+        <h2><%= t('privacy.sections.introduction.title') %></h2>
+        <p><%= t('privacy.sections.introduction.content') %></p>
+      </section>
+
+      <!-- Section 2: Information We Collect -->
+      <section id="information_we_collect" class="mb-5">
+        <h2><%= t('privacy.sections.information_we_collect.title') %></h2>
+        
+        <h3 class="h5 mt-4"><%= t('privacy.sections.information_we_collect.personal_data.title') %></h3>
+        <p><%= t('privacy.sections.information_we_collect.personal_data.content') %></p>
+        <ul>
+          <% t('privacy.sections.information_we_collect.personal_data.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+
+        <h3 class="h5 mt-4"><%= t('privacy.sections.information_we_collect.usage_data.title') %></h3>
+        <p><%= t('privacy.sections.information_we_collect.usage_data.content') %></p>
+        <ul>
+          <% t('privacy.sections.information_we_collect.usage_data.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 3: How We Use Your Information -->
+      <section id="how_we_use" class="mb-5">
+        <h2><%= t('privacy.sections.how_we_use.title') %></h2>
+        <p><%= t('privacy.sections.how_we_use.content') %></p>
+        <ul>
+          <% t('privacy.sections.how_we_use.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 4: Cookies -->
+      <section id="cookies" class="mb-5">
+        <h2><%= t('privacy.sections.cookies.title') %></h2>
+        <p><%= t('privacy.sections.cookies.content') %></p>
+      </section>
+
+      <!-- Section 5: Data Sharing -->
+      <section id="data_sharing" class="mb-5">
+        <h2><%= t('privacy.sections.data_sharing.title') %></h2>
+        <p><%= t('privacy.sections.data_sharing.content') %></p>
+        <ul>
+          <% t('privacy.sections.data_sharing.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 6: Data Retention -->
+      <section id="data_retention" class="mb-5">
+        <h2><%= t('privacy.sections.data_retention.title') %></h2>
+        <p><%= t('privacy.sections.data_retention.content') %></p>
+      </section>
+
+      <!-- Section 7: Your Rights -->
+      <section id="your_rights" class="mb-5">
+        <h2><%= t('privacy.sections.your_rights.title') %></h2>
+        <p><%= t('privacy.sections.your_rights.content') %></p>
+        <ul>
+          <% t('privacy.sections.your_rights.items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </section>
+
+      <!-- Section 8: Security -->
+      <section id="security" class="mb-5">
+        <h2><%= t('privacy.sections.security.title') %></h2>
+        <p><%= t('privacy.sections.security.content') %></p>
+      </section>
+
+      <!-- Section 9: International Transfers -->
+      <section id="international_transfers" class="mb-5">
+        <h2><%= t('privacy.sections.international_transfers.title') %></h2>
+        <p><%= t('privacy.sections.international_transfers.content') %></p>
+      </section>
+
+      <!-- Section 10: Changes -->
+      <section id="changes" class="mb-5">
+        <h2><%= t('privacy.sections.changes.title') %></h2>
+        <p><%= t('privacy.sections.changes.content') %></p>
+      </section>
+
+      <!-- Section 11: Contact -->
+      <section id="contact" class="mb-5">
+        <h2><%= t('privacy.sections.contact.title') %></h2>
+        <p><%= t('privacy.sections.contact.content') %></p>
+        <div class="mt-3">
+          <%= link_to t('navigation.contact'), new_contact_message_path, class: 'btn btn-primary' %>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
