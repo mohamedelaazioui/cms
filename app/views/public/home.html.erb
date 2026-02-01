@@ -1,10 +1,12 @@
 <!-- Hero Section -->
 <div class="jumbotron bg-light p-5 rounded-3 mb-5">
-  <div class="container-fluid py-5">
+  <div class="container-fluid py-5 text-center">
     <h1 class="display-4"><%= t('home.welcome_title') %></h1>
     <p class="lead"><%= t('home.welcome_subtitle') %></p>
-    <%= link_to t('home.view_services'), "#services", class: 'btn btn-primary btn-lg' %>
-    <%= link_to t('home.contact_us'), new_contact_message_path, class: 'btn btn-secondary btn-lg' %>
+    <div class="mt-4">
+      <%= link_to t('home.view_services'), "#services", class: 'btn btn-primary btn-lg' %>
+      <%= link_to t('home.contact_us'), new_contact_message_path, class: 'btn btn-secondary btn-lg' %>
+    </div>
   </div>
 </div>
 

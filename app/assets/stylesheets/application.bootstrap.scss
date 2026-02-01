@@ -23,6 +23,8 @@ body {
   background-color: $light-gray !important;
   color: $pleasant-black !important;
   overflow-x: hidden; // Prevent horizontal scroll
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 // Enhanced smooth scrolling for all anchor links with transition
@@ -35,6 +37,7 @@ a[href^="#"] {
 section {
   scroll-margin-top: 100px; // Ensure sections don't hide under navbar
   transition: opacity 0.4s ease-in-out;
+  margin: 0 !important;
 }
 
 // Smooth page transitions
@@ -79,7 +82,7 @@ a {
   
   .navbar-brand, .nav-link {
     color: $primary-orange !important;
-    font-weight: 500;
+    font-weight: 700;
     
     &:hover {
       color: $secondary-orange !important;
@@ -311,16 +314,16 @@ form .mb-3:last-child {
   
   // Remove excessive spacing between sections on mobile
   section {
-    margin-bottom: 2rem !important;
+    margin: 0 !important;
   }
   
   .jumbotron {
-    margin-bottom: 2rem !important;
+    margin-bottom: 0 !important;
     padding: 2rem 1rem !important;
   }
   
   .services-hero {
-    margin-bottom: 2rem !important;
+    margin-bottom: 0 !important;
     padding: 1rem 0 !important;
   }
   
