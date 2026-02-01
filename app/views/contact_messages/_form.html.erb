@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_with(model: @contact_message, local: true, class: 'needs-validation') do |form| %>
+      <%= invisible_captcha :subtitle %>
+      
+      <% if @contact_message.errors.any? %>
+        <div class="alert alert-danger">
+          <h4><%= pluralize(@contact_message.errors.count, "error") %> <%= t('contact.errors_prohibited') %></h4>
+          <ul>
+            <% @contact_message.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :name, t('contact.name'), class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :email, t('contact.email'), class: 'form-label' %>
+        <%= form.email_field :email, class: 'form-control', required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :message, t('contact.message'), class: 'form-label' %>
+        <%= form.text_area :message, class: 'form-control', rows: 6, required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit t('contact.send_message'), class: 'btn btn-primary' %>
+        <%= link_to t('contact.cancel'), root_path, class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= t('contact.card_title') %></h5>
+        <p class="card-text"><%= t('contact.card_text') %></p>
+      </div>
+    </div>
+  </div>
+</div>

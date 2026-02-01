@@ -65,6 +65,21 @@ ja:
     card_title: "お問い合わせください"
     card_text: "ご質問や一緒に働きたい場合は、メッセージをお送りください。できるだけ早くご返信いたします。"
     errors_prohibited: "により、このメッセージは送信できませんでした："
+    success_title: "ありがとうございます！"
+    success_message: "メッセージが正常に送信されました。できるだけ早くご連絡いたします。"
+    send_another: "別のメッセージを送信"
+    
+  contact_mailer:
+    confirmation:
+      subject: "お問い合わせを受け付けました - GIBU GUMI"
+      title: "お問い合わせありがとうございます！"
+      greeting: "%{name}様、"
+      received: "メッセージを受け取りました。できるだけ早くご返信いたします。"
+      your_message: "お送りいただいたメッセージ："
+      immediate_assistance: "お急ぎの場合は、お電話またはオフィスへお越しください。"
+      best_regards: "よろしくお願いいたします。"
+      team_name: "GIBU GUMIチーム"
+      automated_note: "これは自動送信メールです。このメールには返信できません。"
     
   admin:
     dashboard: "ダッシュボード"

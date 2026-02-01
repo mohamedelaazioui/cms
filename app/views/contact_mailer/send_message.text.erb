@@ -1,0 +1,18 @@
+New Contact Form Submission
+============================
+
+You have received a new message from your website contact form:
+
+Name: <%= @contact_message.name %>
+Email: <%= @contact_message.email %>
+<% if @contact_message.respond_to?(:subject) && @contact_message.subject.present? %>
+Subject: <%= @contact_message.subject %>
+<% end %>
+Submitted: <%= (@contact_message.created_at || Time.current).strftime("%B %d, %Y at %I:%M %p") %>
+
+Message:
+--------
+<%= @contact_message.message %>
+
+---
+This is an automated notification from GIBU GUMI website.

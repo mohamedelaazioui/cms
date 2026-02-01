@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="alert alert-success">
+      <h4><i class="fas fa-check-circle"></i> <%= t('contact.success_title', default: 'Thank you!') %></h4>
+      <p><%= t('contact.success_message', default: 'Your message has been sent successfully. We will get back to you as soon as possible.') %></p>
+    </div>
+    
+    <div class="mb-3">
+      <%= link_to t('contact.send_another', default: 'Send another message'), new_contact_message_path, class: 'btn btn-primary' %>
+      <%= link_to t('navigation.home'), root_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= t('contact.card_title') %></h5>
+        <p class="card-text"><%= t('contact.card_text') %></p>
+      </div>
+    </div>
+  </div>
+</div>

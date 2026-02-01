@@ -1,0 +1,18 @@
+<%= t('contact_mailer.confirmation.title') %>
+============================
+
+<%= t('contact_mailer.confirmation.greeting', name: @contact_message.name) %>
+
+<%= t('contact_mailer.confirmation.received') %>
+
+<%= t('contact_mailer.confirmation.your_message') %>
+-------------
+<%= @contact_message.message %>
+
+<%= t('contact_mailer.confirmation.immediate_assistance') %>
+
+<%= t('contact_mailer.confirmation.best_regards') %>
+<%= t('contact_mailer.confirmation.team_name') %>
+
+---
+<%= t('contact_mailer.confirmation.automated_note') %>

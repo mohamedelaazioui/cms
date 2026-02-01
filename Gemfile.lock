@@ -121,7 +121,14 @@ GEM
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
+    ffi (1.17.3-aarch64-linux-gnu)
+    ffi (1.17.3-aarch64-linux-musl)
+    ffi (1.17.3-arm-linux-gnu)
+    ffi (1.17.3-arm-linux-musl)
     ffi (1.17.3-arm64-darwin)
+    ffi (1.17.3-x86_64-darwin)
+    ffi (1.17.3-x86_64-linux-gnu)
+    ffi (1.17.3-x86_64-linux-musl)
     friendly_id (5.6.0)
       activerecord (>= 4.0.0)
     fugit (1.12.1)
@@ -138,6 +145,8 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    invisible_captcha (2.3.0)
+      rails (>= 5.2)
     io-console (0.8.2)
     irb (1.16.0)
       pp (>= 0.6.0)
@@ -413,6 +422,7 @@ DEPENDENCIES
   friendly_id
   image_processing (~> 1.2)
   importmap-rails
+  invisible_captcha
   jbuilder
   kamal
   pg (~> 1.1)

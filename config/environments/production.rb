@@ -71,12 +71,22 @@ Rails.application.configure do
     end
   end
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # Raise email delivery errors to surface SMTP problems
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_HOST', 'gibugumi.com') }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV.fetch('MAILTRAP_USER', 'api'),
+    password: ENV.fetch('MAILTRAP_PASSWORD'),
+    address: ENV.fetch('MAILTRAP_HOST', 'live.smtp.mailtrap.io'),
+    domain: ENV.fetch('MAILER_HOST', 'gibugumi.com'),
+    port: ENV.fetch('MAILTRAP_PORT', '587'),
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {

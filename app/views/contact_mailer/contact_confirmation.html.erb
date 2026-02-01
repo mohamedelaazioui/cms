@@ -1,0 +1,21 @@
+<h1><%= t('contact_mailer.confirmation.title') %></h1>
+
+<p><%= t('contact_mailer.confirmation.greeting', name: @contact_message.name) %></p>
+
+<p><%= t('contact_mailer.confirmation.received') %></p>
+
+<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #ff6b35;">
+  <h3 style="margin-top: 0;"><%= t('contact_mailer.confirmation.your_message') %></h3>
+  <p style="white-space: pre-wrap;"><%= @contact_message.message %></p>
+</div>
+
+<p><%= t('contact_mailer.confirmation.immediate_assistance') %></p>
+
+<p style="margin-top: 30px;">
+  <%= t('contact_mailer.confirmation.best_regards') %><br>
+  <strong><%= t('contact_mailer.confirmation.team_name') %></strong>
+</p>
+
+<p style="color: #666; font-size: 14px; margin-top: 30px;">
+  <%= t('contact_mailer.confirmation.automated_note') %>
+</p>

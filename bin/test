@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+# path to your application root.
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args, exception: true)
+end
+
+FileUtils.chdir APP_ROOT do
+  # This script is a way to run your tests from the command line.
+  puts "\n== Running tests =="
+  
+  system! "bin/rails test:all"
+end

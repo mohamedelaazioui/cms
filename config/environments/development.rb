@@ -31,8 +31,21 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # Mailtrap configuration for email testing
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV.fetch('MAILTRAP_USER', 'api'),
+    password: ENV.fetch('MAILTRAP_PASSWORD', '18714fd91670239325df20177b7cbaf2'),
+    address: ENV.fetch('MAILTRAP_HOST', 'live.smtp.mailtrap.io'),
+    domain: 'localhost',
+    port: ENV.fetch('MAILTRAP_PORT', '587'),
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false

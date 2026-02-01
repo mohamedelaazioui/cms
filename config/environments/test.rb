@@ -38,6 +38,10 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "example.com" }
+    host: 'live.smtp.mailtrap.io',
+    port: '587',
+    authentication: :login
+  }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
