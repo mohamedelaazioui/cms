@@ -31,7 +31,7 @@ class ContactMessagesController < ApplicationController
         rescue => e
           Rails.logger.error "Failed to send contact message: #{e.message}"
           Rails.logger.error e.backtrace.join("\n")
-          
+
           format.turbo_stream do
             flash.now[:alert] = "There was an error sending your message: #{e.message}"
             render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
@@ -40,7 +40,7 @@ class ContactMessagesController < ApplicationController
         end
       else
         format.turbo_stream do
-          flash.now[:alert] = @contact_message.errors.full_messages.join(', ')
+          flash.now[:alert] = @contact_message.errors.full_messages.join(", ")
           render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
         end
         format.html { render :new, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class ContactMessagesController < ApplicationController
   end
 
   private
-  
+
   def contact_message_params
     params.require(:contact_message).permit(:name, :email, :subject, :message)
   end

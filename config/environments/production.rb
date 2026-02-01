@@ -17,7 +17,7 @@ Rails.application.configure do
 
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
-  
+
   # Enable serving of static files for Heroku
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
@@ -76,17 +76,17 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_HOST', 'gibugumi.com') }
-  
+  config.action_mailer.default_url_options = { host: ENV.fetch("MAILER_HOST", "gibugumi.com") }
+
   # Configure SMTP only if credentials are available
-  if ENV['MAILTRAP_PASSWORD'].present?
+  if ENV["MAILTRAP_PASSWORD"].present?
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      user_name: ENV.fetch('MAILTRAP_USER', 'api'),
-      password: ENV['MAILTRAP_PASSWORD'],
-      address: ENV.fetch('MAILTRAP_HOST', 'live.smtp.mailtrap.io'),
-      domain: ENV.fetch('MAILER_HOST', 'gibugumi.com'),
-      port: ENV.fetch('MAILTRAP_PORT', '587'),
+      user_name: ENV.fetch("MAILTRAP_USER", "api"),
+      password: ENV["MAILTRAP_PASSWORD"],
+      address: ENV.fetch("MAILTRAP_HOST", "live.smtp.mailtrap.io"),
+      domain: ENV.fetch("MAILER_HOST", "gibugumi.com"),
+      port: ENV.fetch("MAILTRAP_PORT", "587"),
       authentication: :login,
       enable_starttls_auto: true
     }
